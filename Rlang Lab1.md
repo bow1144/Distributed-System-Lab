@@ -6,7 +6,7 @@
 
 ### 1. 创建三百个学生并设置学号
 ```
-set.seed(20)
+set.seed(34)
 
 num_students <- 300
 start_id <- 210222001
