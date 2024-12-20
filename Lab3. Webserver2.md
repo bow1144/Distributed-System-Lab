@@ -301,3 +301,8 @@ public interface UserMapper {
     
     </body>
     </html>
+
+## 五、实现中遇到的困难
+1. maven配置：在配置maven是会出现有些依赖无法使用的Bug，解决方法是清除IDEA的缓存并重启IDEA
+2. Spring Shell导致的SpringBoot的循环依赖，并且在禁用shell后依然无法解决；解决方法：在maven中取消shell的引用
+3. Spring 报错 文档根元素 "mapper" 必须匹配 DOCTYPE 根 "null"：解决方法：将mapper文件放在main/resources.mapper下
