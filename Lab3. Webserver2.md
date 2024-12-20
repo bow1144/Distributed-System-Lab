@@ -216,88 +216,88 @@ public interface UserMapper {
 </mapper>
 
 ## 四、前端内容
-
-<!DOCTYPE html>
-<html lang="zh" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户信息</title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-<div class="container">
-    <div class="header">
-        <h1 class="title">用户信息</h1>
-        <!-- 添加和删除按钮容器 -->
-        <div class="button-container">
-            <button th:attr="onclick='addUser()'" class="action-btn add-user-btn">添加用户</button>
+    
+    <!DOCTYPE html>
+    <html lang="zh" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>用户信息</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">用户信息</h1>
+            <!-- 添加和删除按钮容器 -->
+            <div class="button-container">
+                <button th:attr="onclick='addUser()'" class="action-btn add-user-btn">添加用户</button>
+            </div>
         </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>Email</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- 使用 Thymeleaf 渲染用户数据 -->
+            <tr th:each="u : ${user}">
+                <td th:text="${u.id}"></td>
+                <td th:text="${u.name}"></td>
+                <td th:text="${u.email}"></td>
+                <td>
+                    <!-- 修改按钮，点击后跳转到修改页面 -->
+                    <button th:attr="onclick='editUser(' + ${u.id} + ')'">修改</button>
+                    <button th:attr="onclick='viewDetails(' + ${u.id} + ')'" class="action-btn detail-btn">详情</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>姓名</th>
-            <th>Email</th>
-            <th>操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- 使用 Thymeleaf 渲染用户数据 -->
-        <tr th:each="u : ${user}">
-            <td th:text="${u.id}"></td>
-            <td th:text="${u.name}"></td>
-            <td th:text="${u.email}"></td>
-            <td>
-                <!-- 修改按钮，点击后跳转到修改页面 -->
-                <button th:attr="onclick='editUser(' + ${u.id} + ')'">修改</button>
-                <button th:attr="onclick='viewDetails(' + ${u.id} + ')'" class="action-btn detail-btn">详情</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="sidebar">
-    <h3>更多操作</h3>
-    <a href="#" class="sidebar-btn" onclick="monitorHost()">监控主机</a>
-    <a href="#" class="sidebar-btn" onclick="hostDetails()">主机列表</a>
-    <a href="#" class="sidebar-btn" onclick="someOtherAction()">成果日志</a>
-</div>
-
-<!-- JavaScript -->
-<script>
-    // 编辑用户的函数
-    function editUser(userId) {
-        // 跳转到编辑页面，并传递用户ID作为参数
-        window.location.href = '/users/editUser?id=' + userId;
-    }
-
-    // 添加用户
-    function addUser() {
-        // 跳转到编辑页面，不传递参数
-        window.location.href = '/users/addUser';
-    }
-
-    // 详细情况
-    function viewDetails(userId) {
-        // 跳转到详情页面
-        window.location.href = '/users/details?id=' + userId;
-    }
-
-    // 监控主机
-    function monitorHost() {
-        // 跳转到主机监控页面
-        window.location.href = '/monitor';
-    }
-
-    // 主机状态列表
-    function hostDetails() {
-        // 跳转到主机列表页面
-        window.location.href = '/users/hostDetails';
-    }
-</script>
-
-</body>
-</html>
+    
+    <div class="sidebar">
+        <h3>更多操作</h3>
+        <a href="#" class="sidebar-btn" onclick="monitorHost()">监控主机</a>
+        <a href="#" class="sidebar-btn" onclick="hostDetails()">主机列表</a>
+        <a href="#" class="sidebar-btn" onclick="someOtherAction()">成果日志</a>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // 编辑用户的函数
+        function editUser(userId) {
+            // 跳转到编辑页面，并传递用户ID作为参数
+            window.location.href = '/users/editUser?id=' + userId;
+        }
+    
+        // 添加用户
+        function addUser() {
+            // 跳转到编辑页面，不传递参数
+            window.location.href = '/users/addUser';
+        }
+    
+        // 详细情况
+        function viewDetails(userId) {
+            // 跳转到详情页面
+            window.location.href = '/users/details?id=' + userId;
+        }
+    
+        // 监控主机
+        function monitorHost() {
+            // 跳转到主机监控页面
+            window.location.href = '/monitor';
+        }
+    
+        // 主机状态列表
+        function hostDetails() {
+            // 跳转到主机列表页面
+            window.location.href = '/users/hostDetails';
+        }
+    </script>
+    
+    </body>
+    </html>
