@@ -302,6 +302,21 @@ public interface UserMapper {
     </body>
     </html>
 
+## 五、实验效果
+
+### 5.1 首页
+<img width="644" alt="{DFA0FD1E-486E-4998-8A23-ADFFA5B868EE}" src="https://github.com/user-attachments/assets/d7143bd7-0df5-46ca-a480-316eec0da30f" />
+
+### 5.2 增加用户
+<img width="658" alt="{DEB8EE58-1094-4016-AF95-48716ECEA3DC}" src="https://github.com/user-attachments/assets/27e43b84-0d93-4576-84e4-5d3e5d257e4f" />
+
+### 5.3 修改用户
+<img width="614" alt="{E8035895-C8C0-43AC-9720-781961BF3318}" src="https://github.com/user-attachments/assets/d1543321-7a67-428c-ae02-5ed80fee3db0" />
+
+### 5.3 删除用户
+<img width="702" alt="{4992599F-0410-40B1-840F-FDC912BA7B6F}" src="https://github.com/user-attachments/assets/d05e17e5-9a37-4b80-bd44-1d08711a6577" />
+
+
 ## 五、实现中遇到的困难
 1. maven配置：在配置maven是会出现有些依赖无法使用的Bug，解决方法是清除IDEA的缓存并重启IDEA
 2. Spring Shell导致的SpringBoot的循环依赖，并且在禁用shell后依然无法解决；解决方法：在maven中取消shell的引用
