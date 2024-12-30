@@ -1,4 +1,4 @@
-# 实验一、会员群体画像
+# 实验一、电影评分数据分析
 
 ## 一、下载数据集
 ```
@@ -107,3 +107,71 @@ str(genre_mat2)
 <img width="547" alt="{941EB8ED-D583-4DEB-AFF3-7A91AEA0D4B1}" src="https://github.com/user-attachments/assets/936d5ef7-bc29-48bf-b50d-2fb9a9366ea1" />
 
 <img width="518" alt="{A715C4C7-7733-4288-A282-38739C9B9F6C}" src="https://github.com/user-attachments/assets/a8c9d0ab-a93c-4d1f-af11-139f4f4f6658" />
+
+# 实验二、会员群体收入分析
+
+## 一、数据预处理
+<img width="355" alt="{FCBCDEC4-1105-4584-B561-83FC53DC14DD}" src="https://github.com/user-attachments/assets/c68afffd-2b03-4903-a302-7fe92bd01636" />
+
+<img width="349" alt="{9439F3E4-928A-4009-B0DC-81EA81DCC575}" src="https://github.com/user-attachments/assets/b7630d93-a884-43a7-9cfa-82bcae914d22" />
+
+<img width="354" alt="{1577E2A1-EBC0-491A-BED1-5DF2DACD81B8}" src="https://github.com/user-attachments/assets/91a8f385-db3d-4503-95cc-e4d82ae27434" />
+
+<img width="369" alt="{99279D5F-E359-4535-9121-576568D45B13}" src="https://github.com/user-attachments/assets/6c712780-5a5c-4cc0-ada6-da2420ff89cf" />
+
+## 二、基本信息可视化
+<img width="341" alt="{E3105A5F-B1F2-46A9-BDA5-628CDA38CA81}" src="https://github.com/user-attachments/assets/b370e59e-904f-4f72-8857-95610cac80c3" />
+
+<img width="345" alt="{8679DBC7-BB7B-4F05-9F8A-975C5077EF08}" src="https://github.com/user-attachments/assets/7ea892fc-9cbf-4165-9777-09fceae0ae9b" />
+
+s<img width="348" alt="{E461AB61-978C-4EF4-9759-A8882032A8DA}" src="https://github.com/user-attachments/assets/971463f4-7a4a-4158-bb8b-0b76def6b3fa" />
+
+<img width="350" alt="{9E71FA08-A8AC-4CE5-86DB-36798EC5F3B8}" src="https://github.com/user-attachments/assets/2f7283b6-c656-4474-9d95-5d06f88ceb48" />
+
+<img width="350" alt="{A231431A-D2C4-4512-9F24-496B9B38C45B}" src="https://github.com/user-attachments/assets/f9708cfd-62e9-4e67-829a-d8e13de50ebb" />
+
+## 三、顾客收入解析
+
+<img width="349" alt="{AD0B0B92-6036-4DC3-A783-0EF04B5F9386}" src="https://github.com/user-attachments/assets/b47b25c2-50c8-48f6-bb28-e12828fae371" />
+
+<img width="331" alt="{35DC4D77-905B-4668-A39D-A7A0F6C44B57}" src="https://github.com/user-attachments/assets/f346face-9d48-4029-9c54-bf166036bdc8" />
+
+<img width="347" alt="{1A0E18D3-39AA-4E25-985D-248E4629BFA7}" src="https://github.com/user-attachments/assets/6145617b-d063-44ef-bc74-7301f6fd19e1" />
+
+<img width="352" alt="{E4E755A8-3D29-44EB-AB2C-5AA0723DA24C}" src="https://github.com/user-attachments/assets/6fa2f340-5797-42b1-bf0e-a438bbee5852" />
+
+<img width="345" alt="{00CA2383-28C0-4DFA-826F-483FEB59EE5E}" src="https://github.com/user-attachments/assets/1df4cba8-e77a-4f0d-b2a2-0d2981ef47dc" />
+
+## 四、K-means聚类分析
+```
+library(purrr)
+set.seed(123)
+# function to calculate total intra-cluster sum of square 
+iss <- function(k) {
+  kmeans(customer_data[,3:5],k,iter.max=100,nstart=100,algorithm="Lloyd" )$tot.withinss
+}
+
+k.values <- 1:10
+
+
+iss_values <- map_dbl(k.values, iss)
+
+plot(k.values, iss_values,
+    type="b", pch = 19, frame = FALSE, 
+    xlab="Number of clusters K",
+    ylab="Total intra-clusters sum of squares")
+```
+
+<img width="283" alt="{FDF18C65-D9E5-4C4A-89A5-3EBCF8874B83}" src="https://github.com/user-attachments/assets/54e0d19b-0c4f-40a8-937e-505980d48943" />
+
+<img width="346" alt="{D8DC622E-C0F7-40CA-8291-F8FFEEB2281F}" src="https://github.com/user-attachments/assets/1c4ef28f-292e-44fd-aa1a-e13a8b546b71" />
+
+<img width="409" alt="{7694128C-CCC3-4C6F-81E9-7DEA7B42B043}" src="https://github.com/user-attachments/assets/18c9d170-330d-4afe-8366-15bd5013cc07" />
+
+<img width="347" alt="{89FE1C28-6A7C-4363-9BB2-EBD4B2B98409}" src="https://github.com/user-attachments/assets/2bdad71a-e0ac-460b-b569-88c6bd3f6874" />
+
+<img width="354" alt="{9A5FD2B8-441D-41D9-839E-6DDC890AF1A3}" src="https://github.com/user-attachments/assets/2d32406d-6f53-489c-9a0e-13f40d255c1c" />
+
+<img width="359" alt="{7B19E5E1-C1D1-4670-9319-65250A149030}" src="https://github.com/user-attachments/assets/81b9cb94-3b93-4f6c-94c4-e71fd895cd3b" />
+
+<img width="347" alt="{35DF180A-F1FB-4D9A-ABA9-AC3843601937}" src="https://github.com/user-attachments/assets/4cf4dc08-1237-42b4-a106-1f8086e1a30d" />
